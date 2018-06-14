@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
     selector: 'app-reactive',
@@ -8,8 +8,6 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 export class ReactiveComponent implements OnInit {
 
     public formRegister: FormGroup;
-    removeItem = (index: number): void => this.formRegister.get('skills').removeAt(index);
-    addNewItem = (val: string): void => this.formRegister.get('skills').push(new FormControl(val));
 
     constructor(
         private formBuilder: FormBuilder
@@ -29,4 +27,16 @@ export class ReactiveComponent implements OnInit {
             skills: this.formBuilder.array([ 'skill 1', 'skill 2' ])
         });
     }
+
+
+    removeItem = (index: number): void => {
+        const formArray = this.formRegister.get('skills') as FormArray;
+        formArray.removeAt(index);
+    }
+
+    addNewItem = (val: string): void => {
+        const formArray = this.formRegister.get('skills') as FormArray;
+        formArray.push(new FormControl(val));
+    }
+
 }
