@@ -1,0 +1,37 @@
+:host {
+    .tags {
+        width: 100%;
+        display: block;
+        color: #495057;
+        font-size: 1rem;
+        line-height: 1.5;
+        background-color: #fff;
+        border-radius: 0.25rem;
+        border: 1px solid #ced4da;
+        padding: 0.375rem 0.75rem;
+        background-clip: padding-box;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+        &-focus {
+            color: #495057;
+            background-color: #fff;
+            border-color: #80bdff;
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+
+        .badge {
+            padding: 6px 10px;
+        }
+
+        #newItem {
+            width: 100%;
+            border: none;
+
+            &:focus {
+                outline: 0;
+            }
+        }
+    }
+
+}

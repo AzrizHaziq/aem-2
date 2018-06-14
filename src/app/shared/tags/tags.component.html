@@ -1,0 +1,19 @@
+<div class="tags {{ meta.isFocused && 'tags-focus' }}">
+
+    <ng-container *ngFor="let item of items; let i = index">
+        <div class="badge badge-primary m-1">
+            <i class="fa fa-times" (click)="removeItem.emit(i)"></i>
+            {{ item }}
+        </div>
+    </ng-container>
+
+    <form (submit)="onEnter()" #tagsForm="ngForm">
+        <label class="d-none" for="newItem">New Item</label>
+        <input type="text" id="newItem"
+               [(ngModel)]="state.newItem"
+               name="newItem" #newItem="ngModel"
+               (focus)="onFocus()"
+               (focusout)="onFocusOut()"
+        />
+    </form>
+</div>

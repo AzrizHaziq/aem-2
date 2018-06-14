@@ -1,0 +1,70 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <form novalidate #forms="ngForm">
+                <div class="card">
+                    <div class="card-header">
+                        Template-driven Form
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <div class="row">
+                                <div class="col-6">
+                                    <input type="text" class="form-control" placeholder="First"
+                                           [(ngModel)]="state.name.first" name="first_name" #first_name="ngModel">
+                                </div>
+                                <div class="col-6">
+                                    <input type="text" class="form-control" placeholder="Last"
+                                           [(ngModel)]="state.name.last" name="last_name" #last_name="ngModel">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" class="form-control" placeholder="example@gmail.com"
+                                   [(ngModel)]="state.email" name="email" #email="ngModel">
+                        </div>
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">+60</span>
+                                </div>
+                                <input type="number" class="form-control"
+                                       placeholder="Mobile" [(ngModel)]="state.phone.mobile"
+                                       name="mobile" #mobile="ngModel">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Skills</label>
+                            <app-tags
+                                [items]="state.skills"
+                                (addItem)="addNewItem($event)"
+                                (removeItem)="removeItem($event)"
+                            ></app-tags>
+                            <small class="form-text text-info">
+                                <b>Note:</b> Transform this input into a custom tagging input.
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-5">
+            <div class="bg-light p-3 h-100 rounded">
+                <pre class="mb-0">{{ state | json }}</pre>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<div class="container mb-5">
+    <div class="row">
+        <div class="col-md-12 d-flex justify-content-center">
+            <a class="btn btn-sm btn-primary mr-1" routerLink="/form/reactive">Reactive Form</a>
+        </div>
+    </div>
+</div>
